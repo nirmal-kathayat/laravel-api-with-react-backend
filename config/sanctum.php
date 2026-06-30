@@ -50,7 +50,10 @@ return [
     |
     */
 
-    'expiration' => null,
+    // 8 hours (in minutes). Keep in sync with SESSION_TTL_MS in the frontend
+    // (homepage_frontend/src/lib/auth.js). After this, Sanctum rejects the token
+    // server-side so an old localStorage token can no longer be used.
+    'expiration' => 480,
 
     /*
     |--------------------------------------------------------------------------
